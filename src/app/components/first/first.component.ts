@@ -13,11 +13,11 @@ export class FirstComponent implements OnInit {
   constructor(private ch: ChannelService) {}
 
   ngOnInit(): void {
-    this.f();
+    this.loadData('Hyy');
   }
 
-  f(): void {
-    console.log(this.title);
+  loadData(data: string): void {
+    this.ch.getData(data);
   }
 
   sum(a: number, b: number): number {

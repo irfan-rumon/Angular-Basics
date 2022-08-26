@@ -9,4 +9,8 @@ export class ChannelService {
   display(msg: string): string {
     return 'Welcome to ' + msg;
   }
+
+  getData(data: string): void {
+    console.log(data);
+  }
 }
