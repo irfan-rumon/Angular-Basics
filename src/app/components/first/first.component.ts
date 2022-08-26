@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChannelService } from '../../services/channel.service';
 
 @Component({
   selector: 'app-first',
@@ -9,13 +10,21 @@ export class FirstComponent implements OnInit {
   title: string = 'Js ...';
   products: string[] = ['Rice', 'Fruits', 'Shirts', 'Shoes'];
 
-  constructor() {}
+  constructor(private ch: ChannelService) {}
+
+  ngOnInit(): void {
+    this.f();
+  }
 
   f(): void {
     console.log(this.title);
   }
 
-  ngOnInit(): void {
-    this.f();
+  sum(a: number, b: number): number {
+    return a + b;
+  }
+
+  viaService(msg: string): string {
+    return this.ch.display(msg);
   }
 }
