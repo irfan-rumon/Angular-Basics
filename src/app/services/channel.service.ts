@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { DummyService } from './dummy.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChannelService {
-  constructor() {}
+  constructor(private dummy: DummyService) {
+    this.anotherService();
+  }
 
   display(msg: string): string {
     return 'Welcome to ' + msg;
@@ -12,5 +15,9 @@ export class ChannelService {
 
   getData(data: string): void {
     console.log(data);
+  }
+
+  anotherService() {
+    console.log(this.dummy.getTitle());
   }
 }
