@@ -2,3 +2,17 @@
 <a [routerLink]="['/']" routerLinkActive="router-link-active">
   Go to First Component
 </a>
+
+<br />
+<label for="color"
+  >Color<br />
+  <input type="text" [formControl]="color" />
+</label>
+
+<label for="name"
+  ><br />Name: <br />
+  <input type="text" [formControl]="name" />
+</label>
+
+<p>{{ color.value }}</p>
+<p>{{ name.value }}</p>
