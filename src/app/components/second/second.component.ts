@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Employee } from '../../employee';
 
 @Component({
   selector: 'app-second',
@@ -17,7 +18,14 @@ export class SecondComponent implements OnInit {
     salary: new FormControl(''),
   });
 
-  constructor() {}
+  employee: Employee = {
+    rank: '',
+    salary: 0,
+  };
+
+  constructor() {
+    this.employee = {} as Employee;
+  }
 
   ngOnInit(): void {}
 

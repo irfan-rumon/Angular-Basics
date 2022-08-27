@@ -33,4 +33,25 @@
 
 <p>
   {{ myForm.value | json }}
+  Rank: {{ myForm.value.rank }} Salary: {{ myForm.value.salary }}
 </p>
+
+<h1>Template driven Form Validation</h1>
+
+<input
+  type="text"
+  name="rank"
+  #rank="ngModel"
+  [(ngModel)]="employee.rank"
+  minlength="3"
+  maxlength="6"
+  required
+/>
+
+<div *ngIf="rank.invalid && (rank.dirty || rank.touched)" class="alert">
+  <div *ngIf="rank.errors?.['required']">Rank required</div>
+  <div *ngIf="rank.errors?.['minlength']">Use at least 3 characters</div>
+  <div *ngIf="rank.errors?.['maxlength']">Use at most 6 characters</div>
+</div>
+
+{{ employee.rank }}
