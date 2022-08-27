@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { ChannelService } from '../../services/channel.service';
+import {UserInterface} from '../../UserInterface';
 
 @Component({
   selector: 'app-first',
@@ -10,10 +12,14 @@ export class FirstComponent implements OnInit {
   title: string = 'Js ...';
   products: string[] = ['Rice', 'Fruits', 'Shirts', 'Shoes'];
 
-  constructor(private ch: ChannelService) {}
+  constructor(private ch: ChannelService,
+              private http: HttpClient) {}
 
-  ngOnInit(): void {
-    this.loadData('Hyy');
+  users: UserInterface[] = []            
+  ngOnInit(): void{
+    this.http.get('http://localhost:3000/users').subscribe(res => {
+      console.log('res', res)
+    })
   }
 
   loadData(data: string): void {
