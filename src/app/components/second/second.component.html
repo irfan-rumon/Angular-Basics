@@ -16,3 +16,21 @@
 
 <p>{{ color.value }}</p>
 <p>{{ name.value }}</p>
+
+<h1>Template Driven Form:</h1>
+
+<input type="text" [(ngModel)]="username" />
+
+<p>{{ username }}</p>
+
+<h1>On Action:</h1>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="rank" /><br />
+  <input type="text" formControlName="salary" />
+  <button type="submit">Submit</button>
+</form>
+
+<p>
+  {{ myForm.value | json }}
+</p>

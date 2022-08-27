@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-second',
@@ -10,7 +10,18 @@ export class SecondComponent implements OnInit {
   color = new FormControl('');
   name = new FormControl('');
 
+  username: string = '';
+
+  myForm = new FormGroup({
+    rank: new FormControl(''),
+    salary: new FormControl(''),
+  });
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSubmit() {
+    console.log(this.myForm.value);
+  }
 }
