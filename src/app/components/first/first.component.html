@@ -14,3 +14,24 @@
 </h1>
 
 <p>{{ viaService("Angular") }}</p>
+
+<nav>
+  <ul>
+    <li>
+      <a [routerLink]="['/fa']" routerLinkActive="router-link-active"
+        >Child A
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/fb']" routerLinkActive="router-link-active"
+        >Child B
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<a [routerLink]="['/s']" routerLinkActive="router-link-active">
+  Go to Second Component
+</a>
+
+<router-outlet></router-outlet>
